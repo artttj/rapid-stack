@@ -31,6 +31,7 @@ Use them as `/rs:ask`, `/rs:cr`, `/rs:hum`, and so on.
 | `/std` | Standards. Baseline conventions: immutability, files under 800 lines, functions under 50, named constants over magic numbers, errors handled at every layer. |
 | `/prm` | Turns vague prompts into sharp ones. Works on claude.md, agents.md, system prompts. |
 | `/sec` | OWASP pass. Run before anything that touches auth or new infra. |
+| `/mimic` | Learn any brand from a URL or screenshot, generate a design system. Two sessions, same look. |
 | `/jobs` | Argue with Steve Jobs about your product. Built from 30+ interviews, keynotes, and memos. Stays in first person until you say exit. |
 
 ## What's bundled
@@ -40,12 +41,15 @@ The plugin bundles:
 - **Skills:** `the-humanizer`, `coding-standards`, `prompt-optimizer`, `design`, `game-changing-features`, `vibe-check`
 - **Agents:** `code-reviewer`, `code-simplifier`, `security-reviewer`
 
-Two commands wrap external skills. Install them separately:
+Three commands wrap external skills. Install them separately:
 
 ```
 # for /ui
 /plugin marketplace add nextlevelbuilder/ui-ux-pro-max-skill
 /plugin install ui-ux-pro-max
+
+# for /mimic
+git clone https://github.com/dominikmartn/hue ~/.claude/skills/hue
 
 # for /jobs
 /plugin marketplace add alchaincyf/steve-jobs-skill
@@ -67,5 +71,6 @@ MIT. See [LICENSE](LICENSE).
 The wrapped skills keep their original licenses and authors:
 
 - `ui-ux-pro-max`: MIT, by [nextlevelbuilder](https://github.com/nextlevelbuilder)
+- `hue`: MIT, by [dominikmartn](https://github.com/dominikmartn/hue)
 - `steve-jobs-perspective`: see [alchaincyf/steve-jobs-skill](https://github.com/alchaincyf/steve-jobs-skill)
 - `the-humanizer`, `coding-standards`, `prompt-optimizer`, and the agents: see their respective sources

@@ -7,14 +7,14 @@
   },
   "metadata": {
     "description": "Short slash commands that wrap the Claude Code skills you already use.",
-    "version": "1.1.0"
+    "version": "1.2.0"
   },
   "plugins": [
     {
       "name": "rs",
       "source": "./plugins/rs",
-      "description": "Short slash commands aliasing skills and agents you reach for often. /ask is read-only Q&A. /brn is a brainstorm with a recommended execution path. /dbg runs systematic debugging (reproduce, hypothesize, isolate). /10x runs product strategy analysis. /trim, /cr, /sec wrap their agents. /hum runs the-humanizer. /jobs channels Steve Jobs. /ui calls ui-ux-pro-max. /polish enforces minimal dashboard design. /std and /prm wrap their respective skills.",
-      "version": "1.1.0",
+      "description": "Short slash commands aliasing skills and agents you reach for often. /ask is read-only Q&A. /brn is a brainstorm with a recommended execution path. /dbg runs systematic debugging (reproduce, hypothesize, isolate). /10x runs product strategy analysis. /trim, /cr, /sec wrap their agents. /hum runs the-humanizer. /jobs channels Steve Jobs. /ui calls ui-ux-pro-max. /vibe audits UI quality across 8 dimensions and catches AI sameness. /polish enforces minimal dashboard design. /std and /prm wrap their respective skills.",
+      "version": "1.2.0",
       "author": {
         "name": "artttj",
         "url": "https://github.com/artttj"
@@ -31,6 +31,7 @@
         "humanizer",
         "code-review",
         "design",
+        "vibe-check",
         "steve-jobs"
       ]
     }

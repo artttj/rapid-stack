@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge)](LICENSE) ![Claude Code](https://img.shields.io/badge/Claude%20Code-D97757?style=for-the-badge&logo=anthropic&logoColor=white)
 
-Best community skills packaged as short aliases. Use it to bring ideas to life fast and with good quality.
+Short slash-command aliases for the Claude Code skills and agents you already reach for. Plus `op`, an operator layer that carries a piece of work from spec to shipped, with proof at each step.
 
 ## Install
 
@@ -61,20 +61,20 @@ git clone https://github.com/dominikmartn/hue ~/.claude/skills/hue
 
 ## op — the operator layer
 
-Second plugin in this marketplace. Where rs gives you single-shot aliases, op runs the whole loop: route, spec, plan, build, ship — with proof at the end of every command.
+Second plugin in this marketplace. Where rs gives you single-shot aliases, op runs the whole loop: route, spec, plan, build, ship, with proof at the end of every command.
 
 | Command | What it does |
 |---|---|
-| `/op:go` | Front door. Classifies the ask — bug, small fix, or feature — confirms the route, hands off. |
+| `/op:go` | Front door. Classifies the ask (bug, small fix, or feature), confirms the route, hands off. |
 | `/op:spec` | Feature spec in `docs/specs/<slug>/spec.md`. You approve it with one keypress. |
 | `/op:plan` | Build plan pinned to the approved spec by content hash. Think expensive, execute cheap. |
 | `/op:build` | Executes the plan: TDD, subagents for big plans, capped code review, verification. |
 | `/op:ship` | Commit, push, deploy, cache-busted live check, smoke test, screenshot. |
 | `/op:sync` | Pull prod state (db, images, feed) to localhost per the project recipe. |
-| `/op:show` | Serve locally, screenshot at 14-inch MacBook and mobile viewports, verdict. |
+| `/op:show` | Serve locally, screenshot the responsive breakpoints (mobile, tablet, desktop), verdict. |
 | `/op:release` | Bump, notes, tag, publish, verify the published artifact. |
 
-op reads per-project ops from `.claude/op.json` — the first run discovers your serve/deploy/sync commands and writes the file. Deep disciplines come from `superpowers`, review and polish from `rs`. Both optional: every wrapper degrades to a short inline fallback.
+op reads per-project ops from `.claude/op.json`. The first run discovers your serve/deploy/sync commands and writes the file. Deep disciplines come from `superpowers`, review and polish from `rs`. Both are optional: every wrapper degrades to a short inline fallback.
 
 ## Want them without the `/rs:` prefix?
 

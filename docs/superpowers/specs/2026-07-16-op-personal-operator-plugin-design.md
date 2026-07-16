@@ -8,22 +8,22 @@
 
 ## Goal
 
-Carry the operator disciplines of y1-superpowers into personal project work, without the agency machinery. No Jira, no Bitbucket, no offers, no timesheets, no bilingual output, no company branding. One plugin, eight commands, one always-on constitution, per-project recipes. Target weight ~1,500–2,000 lines including tests (y1-superpowers is ~10,000+).
+Carry proven operator disciplines into personal project work, without the day-job machinery. No Jira, no Bitbucket, no offers, no timesheets, no bilingual output, no employer branding. One plugin, eight commands, one always-on constitution, per-project recipes. Target weight ~1,500–2,000 lines including tests (the reference framework is ~10,000+).
 
 ## Evidence base
 
-Built from three analyses run on 2026-07-16: a distillation of y1-superpowers 1.17.0, an audit of rapid-stack 1.3.0, and a mining pass over 504 Claude Code sessions (600 real user messages) across sonto-news, sonto-space, ktulu, file-viewer, druck, artttj-de, cthulhu, llama-cthulhu, y1-radar.
+Built from three analyses run on 2026-07-16: a distillation of a mature operator framework built on superpowers, an audit of rapid-stack 1.3.0, and a mining pass over my own Claude Code session history across a range of personal projects (web apps, browser extensions, static sites, agent pipelines).
 
 What the sessions show:
 
 - Two working modes: autonomous build (spec → subagent execution → per-file review → commit → push live) and an iterative design loop (build → "show me locally" → art-director feedback → deploy → live check).
-- Recurring typed rituals: "yes commit sync repo push live to ssh wolton do smoke test", "pull db, images, data, feed from ssh wolton to localhost", "show me locally", design-polish passes, npm/marketplace releases.
+- Recurring typed rituals: "commit, sync repo, push live to the host, smoke test", "pull db, images, data, feed from the host to localhost", "show me locally", design-polish passes, npm/marketplace releases.
 - Top recurring pain: stale content after deploy (cache). Second: renders breaking on the 14" MacBook viewport and mobile.
-- The spec gate must scale down: "i dont need plans though, all fixes implement, code review, visual check and deploy live" — while big builds demonstrably run the full gate (cthulhu: zero typed messages mid-build).
+- The spec gate must scale down: "i dont need plans though, all fixes implement, code review, visual check and deploy live" — while big builds demonstrably run the full gate (a plan-then-review build with zero typed messages mid-build).
 
 ## Shape
 
-**Wrap, don't vendor.** y1-superpowers forks superpowers because an agency pins its own copy. Here superpowers and rs are already installed, so op only adds what exists nowhere else:
+**Wrap, don't vendor.** The reference framework forks superpowers because a team pins its own copy. Here superpowers and rs are already installed, so op only adds what exists nowhere else:
 
 - the router and the gate trio (spec/plan/build)
 - the ops verbs (ship/sync/show/release)
@@ -48,7 +48,7 @@ plugins/op/
 │   └── project-recipes/            discovery + .claude/op.json access
 └── hooks/
     ├── hooks.json                  SessionStart → inject using-op
-    └── session-start               de-branded port of the y1 49-line hook
+    └── session-start               port of the superpowers 49-line hook
 ```
 
 marketplace.json gains a second `plugins[]` entry. rs stays untouched in behavior.
@@ -129,7 +129,7 @@ Serve locally per recipe → Playwright screenshots at 1512×982 (14" MacBook) a
 
 ### /op:release
 
-Reads the recipe `release` block: version files to bump, publish command, verify URL. Bumps versions in step, writes humanized release notes, tags, publishes, then fetches the published artifact to verify. Generalizes the druck release train; dogfoods on rapid-stack itself.
+Reads the recipe `release` block: version files to bump, publish command, verify URL. Bumps versions in step, writes humanized release notes, tags, publishes, then fetches the published artifact to verify. Generalizes an existing npm release script; dogfoods on rapid-stack itself.
 
 ## Constitution — skills/using-op
 
@@ -153,10 +153,10 @@ Committed, non-secret, per repo. Schema (all keys optional; commands refuse gate
   "serve": "python3 -m http.server 8080",
   "build": "./build.sh",
   "test": "python3 -m pytest -q",
-  "deploy": "ssh wolton 'cd /root/workspaces/<proj> && git pull && ./build.sh'",
+  "deploy": "ssh <host> 'cd /srv/www/<proj> && git pull && ./build.sh'",
   "sync": { "db": "<cmd>", "images": "<cmd>", "feed": "<cmd>" },
   "release": { "versions": ["package.json"], "publish": "npm publish", "verify": "<url>" },
-  "live_url": "https://sonto.tech",
+  "live_url": "https://example.com",
   "cache_check": "curl -s $URL?v=$BUST | grep <marker>",
   "smoke": ["<url1>", "<url2>"],
   "rollback": "<cmd>"
@@ -165,7 +165,7 @@ Committed, non-secret, per repo. Schema (all keys optional; commands refuse gate
 
 `$URL` and `$BUST` are substituted by op at run time (`live_url` and a fresh cache-buster value); they are the only substitutions.
 
-Discovery on first use: read AGENTS.md/CLAUDE.md, scripts/, package.json, existing `.claude/skills` (smith-*, hallmark, druck-release); propose the recipe as an arrow-choice; write the file. On a failing recipe command: rediscover, confirm, update. SSH aliases (wolton) are fine; tokens never enter the file.
+Discovery on first use: read AGENTS.md/CLAUDE.md, scripts/, package.json, any existing per-repo ops skills under `.claude/skills`; propose the recipe as an arrow-choice; write the file. On a failing recipe command: rediscover, confirm, update. SSH aliases are fine; tokens never enter the file.
 
 ## Degradation
 

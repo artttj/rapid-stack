@@ -27,7 +27,7 @@ Use them as `/rs:ask`, `/rs:cr`, `/rs:hum`, and so on.
 | `/cr` | Code review without the 40-comment pile-on. High-confidence findings only. |
 | `/hum` | Self-educating humanizer skill that keeps up with the latest LinkedIn AI slop patterns. |
 | `/ui` | Draft UI ideas with real UX quality across platforms. |
-| `/vibe` | UI scorecard, nine dimensions. Flags AI-default looks, ranks what to fix first. |
+| `/vibe` | UI scorecard, eight dimensions plus an AI-sameness screen. Flags AI-default looks, ranks what to fix first. |
 | `/polish` | Pixel-perfect cleanup pass on a design. |
 | `/std` | Standards. Baseline conventions: immutability, files under 800 lines, functions under 50, named constants over magic numbers, errors handled at every layer. |
 | `/prm` | Turns vague prompts into sharp ones. Works on claude.md, agents.md, system prompts. |

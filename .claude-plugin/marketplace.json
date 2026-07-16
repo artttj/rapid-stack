@@ -7,13 +7,13 @@
   },
   "metadata": {
     "description": "Short slash commands that wrap the Claude Code skills you already use.",
-    "version": "1.3.0"
+    "version": "1.4.0"
   },
   "plugins": [
     {
       "name": "rs",
       "source": "./plugins/rs",
-      "description": "Short slash commands aliasing skills and agents you reach for often. /ask is read-only Q&A. /brn is a brainstorm with a recommended execution path. /dbg runs systematic debugging (reproduce, hypothesize, isolate). /10x runs product strategy analysis. /trim, /cr, /sec wrap their agents. /hum runs the-humanizer. /jobs channels Steve Jobs. /ui calls ui-ux-pro-max. /vibe audits UI quality across 9 dimensions and catches AI sameness. /mimic learns any brand and generates a design system. /polish enforces minimal dashboard design. /std and /prm wrap their respective skills.",
+      "description": "Short slash commands aliasing skills and agents you reach for often. /ask is read-only Q&A. /brn is a brainstorm with a recommended execution path. /dbg runs systematic debugging (reproduce, hypothesize, isolate). /10x runs product strategy analysis. /trim, /cr, /sec wrap their agents. /hum runs the-humanizer. /jobs channels Steve Jobs. /ui calls ui-ux-pro-max. /vibe audits UI quality across eight dimensions and catches AI sameness. /mimic learns any brand and generates a design system. /polish enforces minimal dashboard design. /std and /prm wrap their respective skills.",
       "version": "1.3.0",
       "author": {
         "name": "Artem Iagovdik",
@@ -35,6 +35,29 @@
         "brand-design",
         "mimic",
         "steve-jobs"
+      ]
+    },
+    {
+      "name": "op",
+      "source": "./plugins/op",
+      "description": "The operator layer. /op:go classifies any ask and routes it (bug, small fix, or feature). Features run a scaled gate: /op:spec writes a self-approved spec, /op:plan pins a build plan to it by content hash, /op:build executes with TDD and capped review. /op:ship commits, deploys, and verifies the live site cache-busted. /op:sync pulls prod state to localhost. /op:show screenshots local at 14-inch and mobile viewports. /op:release bumps, tags, publishes, verifies.",
+      "version": "1.0.0",
+      "author": {
+        "name": "Artem Iagovdik",
+        "email": "artyom.yagovdik@gmail.com",
+        "url": "https://github.com/artttj"
+      },
+      "homepage": "https://github.com/artttj/rapid-stack",
+      "license": "MIT",
+      "category": "productivity",
+      "keywords": [
+        "operator",
+        "workflow",
+        "spec-gate",
+        "ship",
+        "deploy",
+        "screenshots",
+        "release"
       ]
     }
   ]

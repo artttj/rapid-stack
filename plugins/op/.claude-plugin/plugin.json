@@ -1,0 +1,21 @@
+{
+  "name": "op",
+  "version": "1.0.0",
+  "description": "Personal operator layer. /op:go routes any ask; /op:spec /op:plan /op:build run the scaled gate for features; /op:ship /op:sync /op:show /op:release run the daily ops. Every command ends with proof.",
+  "author": {
+    "name": "Artem Iagovdik",
+    "email": "artyom.yagovdik@gmail.com",
+    "url": "https://github.com/artttj"
+  },
+  "homepage": "https://github.com/artttj/rapid-stack",
+  "license": "MIT",
+  "keywords": [
+    "operator",
+    "workflow",
+    "spec-gate",
+    "ship",
+    "deploy",
+    "screenshots",
+    "release"
+  ]
+}

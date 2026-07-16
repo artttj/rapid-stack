@@ -602,7 +602,7 @@ git commit -m "docs: document the op plugin in the README"
 
 - [ ] **Step 1: LICENSE name.** Replace `artttj` in the copyright line with `Artem Iagovdik`. Commit: `git add LICENSE && git commit -m "chore: use real author name in LICENSE"`
 
-- [ ] **Step 2: .gitignore.** Create `.gitignore` containing one line `.DS_Store`. Commit: `git add .gitignore && git commit -m "chore: ignore .DS_Store"`
+- [ ] **Step 2: .gitignore.** Create `.gitignore` with these lines: `.DS_Store`, `__pycache__/`, `.pytest_cache/`, `.superpowers/`. Commit: `git add .gitignore && git commit -m "chore: ignore editor and test scratch files"`
 
 - [ ] **Step 3: /ui skill reference.** `plugins/rs/commands/ui.md` tells the agent to use the `design` skill "(from the `ui-ux-pro-max` plugin)" — but the external plugin's skill is named `ui-ux-pro-max`, and rs bundles its own `design` skill (used by `/polish`), so the reference resolves to the wrong skill. Read the file, then replace the skill reference sentence so it opens: ``Use the `ui-ux-pro-max` skill on the request below.`` — dropping the parenthetical, leaving the rest of the body and frontmatter unchanged. Commit: `git add plugins/rs/commands/ui.md && git commit -m "fix: point /ui at the ui-ux-pro-max skill, not the bundled design skill"`
 

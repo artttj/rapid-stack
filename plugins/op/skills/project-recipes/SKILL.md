@@ -5,7 +5,7 @@ description: Use when an op command needs a per-project operation (serve, build,
 
 # Project recipes
 
-Per-repo ops live in `.claude/op.json`, committed, never secret. SSH aliases (e.g. `wolton`) are fine; tokens and passwords never enter this file.
+Per-repo ops live in `.claude/op.json`, committed, never secret. SSH aliases (e.g. `myhost`) are fine; tokens and passwords never enter this file.
 
 ## Schema
 
@@ -16,7 +16,7 @@ All keys optional. A command that needs a missing key runs Discovery; gated acti
   "serve": "python3 -m http.server 8080",
   "build": "./build.sh",
   "test": "python3 -m pytest -q",
-  "deploy": "ssh wolton 'cd /root/workspaces/<proj> && git pull && ./build.sh'",
+  "deploy": "ssh myhost 'cd /srv/www/<proj> && git pull && ./build.sh'",
   "sync": { "db": "<cmd>", "images": "<cmd>", "feed": "<cmd>" },
   "release": { "versions": ["package.json"], "publish": "npm publish", "verify": "<url>" },
   "live_url": "https://example.com",

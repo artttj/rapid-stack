@@ -13,6 +13,6 @@ The release ritual. Steps run in order; a failing step stops the pipeline and re
 4. **Deploy**: recipe `deploy` — always confirm, armed or not (production). Missing key → op:project-recipes discovery; never guess a target.
 5. **Live verify** (the blocking step): set `BUST` to the current epoch seconds; run recipe `cache_check` with `$URL` and `$BUST` substituted, or fetch `live_url?v=$BUST` and look for a marker from the just-shipped change (new text, version string, asset hash). Stale → report loudly, offer recipe `rollback` when present, and do not use the word "shipped".
 6. **Smoke**: every URL in recipe `smoke` answers 200 — `curl -s -o /dev/null -w "%{http_code}" <url>`.
-7. **Screenshot** the live page: Playwright MCP when available, else `npx playwright screenshot --viewport-size=1512,982 "$URL" <scratchpad>/ship-<date>.png`.
+7. **Screenshot** the live page at a desktop width: Playwright MCP when available, else `npx playwright screenshot --viewport-size=1440,900 "$URL" <scratchpad>/ship-<date>.png`.
 
 Proof at end: live URL, screenshot path, status line.

@@ -125,7 +125,7 @@ Prod → local per recipe (`sync` map: db, images, feed, data dirs). Confirms be
 
 ### /op:show
 
-Serve locally per recipe → Playwright screenshots at 1512×982 (14" MacBook) and 375×812 (mobile), 768 optional, both themes when the site has them → short verdict → offers rs `/vibe` for the full scorecard. Screenshot paths are the proof.
+Serve locally per recipe → Playwright screenshots at the standard responsive breakpoints, 375×812 (mobile), 768×1024 (tablet), 1440×900 (desktop), with 320/1920/14" MacBook available as arrow-choice extras, both themes when the site has them → short verdict → offers rs `/vibe` for the full scorecard. Screenshot paths are the proof.
 
 ### /op:release
 

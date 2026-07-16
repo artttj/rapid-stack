@@ -365,7 +365,7 @@ The release ritual. Steps run in order; a failing step stops the pipeline and re
 4. **Deploy**: recipe `deploy` — always confirm, armed or not (production). Missing key → op:project-recipes discovery; never guess a target.
 5. **Live verify** (the blocking step): set `BUST` to the current epoch seconds; run recipe `cache_check` with `$URL` and `$BUST` substituted, or fetch `live_url?v=$BUST` and look for a marker from the just-shipped change (new text, version string, asset hash). Stale → report loudly, offer recipe `rollback` when present, and do not use the word "shipped".
 6. **Smoke**: every URL in recipe `smoke` answers 200 — `curl -s -o /dev/null -w "%{http_code}" <url>`.
-7. **Screenshot** the live page: Playwright MCP when available, else `npx playwright screenshot --viewport-size=1512,982 "$URL" <scratchpad>/ship-<date>.png`.
+7. **Screenshot** the live page at a desktop width: Playwright MCP when available, else `npx playwright screenshot --viewport-size=1440,900 "$URL" <scratchpad>/ship-<date>.png`.
 
 Proof at end: live URL, screenshot path, status line.
 ````
@@ -428,7 +428,7 @@ Proof at end: per part — what moved, its size (`du -sh`), the local path.
 
 ```markdown
 ---
-description: Serve locally and screenshot at 14-inch and mobile viewports via the op:show skill
+description: Serve locally and screenshot the responsive breakpoints via the op:show skill
 ---
 
 Use the `op:show` skill on the request below. Screenshots first, then a short verdict. Offer /rs:vibe for the full scorecard.
@@ -441,13 +441,13 @@ $ARGUMENTS
 ````markdown
 ---
 name: show
-description: Use when a change needs visual proof — serve locally per recipe, screenshot at 14-inch MacBook and mobile viewports, short verdict.
+description: Use when a change needs visual proof — serve locally per recipe, screenshot the standard responsive breakpoints (mobile, tablet, desktop), short verdict.
 ---
 
 # op:show
 
 1. Serve: recipe `serve` in the background; wait until `curl -s localhost:<port>` answers (10 tries, 1s apart). Already running → reuse it.
-2. Screenshot: 1512×982 (14" MacBook) and 375×812 (mobile); 768×1024 as an arrow-choice extra. Both color schemes when the site has them (emulate prefers-color-scheme). Playwright MCP when available, else `npx playwright screenshot`.
+2. Screenshot the standard breakpoints: 375×812 (mobile), 768×1024 (tablet), 1440×900 (desktop). Offer 320, 1920, and 1512×982 (14" MacBook) as arrow-choice extras, or take whatever widths the request names. Both color schemes when the site has them (emulate prefers-color-scheme). Playwright MCP when available, else `npx playwright screenshot`.
 3. Look at every screenshot before writing a word. Verdict ≤5 bullets: hierarchy, spacing, overflow, contrast, anything broken at either viewport.
 4. Offer /rs:vibe for the full scorecard (arrow-choice; skip silently when rs is absent).
 5. Stop the server if this command started it.
@@ -579,7 +579,7 @@ Second plugin in this marketplace. Where rs gives you single-shot aliases, op ru
 | `/op:build` | Executes the plan: TDD, subagents for big plans, capped code review, verification. |
 | `/op:ship` | Commit, push, deploy, cache-busted live check, smoke test, screenshot. |
 | `/op:sync` | Pull prod state (db, images, feed) to localhost per the project recipe. |
-| `/op:show` | Serve locally, screenshot at 14-inch MacBook and mobile viewports, verdict. |
+| `/op:show` | Serve locally, screenshot the responsive breakpoints (mobile, tablet, desktop), verdict. |
 | `/op:release` | Bump, notes, tag, publish, verify the published artifact. |
 
 op reads per-project ops from `.claude/op.json` — the first run discovers your serve/deploy/sync commands and writes the file. Deep disciplines come from `superpowers`, review and polish from `rs`. Both optional: every wrapper degrades to a short inline fallback.

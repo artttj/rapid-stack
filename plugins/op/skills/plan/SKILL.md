@@ -27,4 +27,16 @@ status: draft
 
 ## Tasks
 
+### Task 1: <name>
+- Files: exact paths to create or modify
+- Tests: the failing test to write first, named from the spec's Tests section
+- Steps: write test → see it fail → implement → see it pass → commit
+
+(one section per task; every spec Behavior maps to a task; every task ends committable)
 ```
+
+5. Self-check against the spec: every Behavior covered, no placeholders, exact paths. Fix inline.
+6. Sign-off gate (arrow-choice): sign off / revise / abandon. On sign-off → `status: signed-off`, commit (`docs: add <slug> plan`), offer /op:build.
+7. Re-run: /op:plan on a spec that already has a plan regenerates plan.md fresh (new pin). It never edits the spec.
+
+Proof at end: plan path, pin value, status.

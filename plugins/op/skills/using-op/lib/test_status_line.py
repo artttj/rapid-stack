@@ -25,6 +25,18 @@ def test_format_no_upstream():
     assert format_line(state) == "git: feat/x — no upstream — no PR"
 
 
+def test_format_behind_only():
+    state = {"branch": "feat/x", "dirty": False, "ahead": 0, "behind": 3,
+             "upstream": True, "pr": ""}
+    assert format_line(state) == "git: feat/x — 3 behind — no PR"
+
+
+def test_format_ahead_and_behind():
+    state = {"branch": "feat/x", "dirty": False, "ahead": 2, "behind": 1,
+             "upstream": True, "pr": ""}
+    assert format_line(state) == "git: feat/x — 2 ahead, 1 behind — no PR"
+
+
 def test_format_not_a_repo():
     assert format_line(None) == "git: not a repository"
 
